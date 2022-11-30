@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+      <div class="text-center" style="border: 1px solid #000; padding:30px; border-radius:20px;">
+        <img
+          class="mb-4"
+          src="../../assets/images/logo.png"
+          style="width: 300px; height: 150px"
+        />
+        <h3>REGISTER </h3>
+        <form action="" [formGroup]="registerForm" >
+            <mdb-form-control>
+                <input mdbInput formControlName="username" type="text"  class="form-control" />
+                <label mdbLabel class="form-label" for="username">Enter Username</label>
+              </mdb-form-control>
+              <div *ngIf="this.registerForm.get('username')?.touched&&this.registerForm.get('username')?.errors" style="color:red;">Invalid Username</div>
+             
+        <mdb-form-control>
+            <input mdbInput formControlName="emailid" type="text"  class="form-control  mt-3" />
+            <label mdbLabel class="form-label" for="emailid">Enter Email ID</label>
+          </mdb-form-control>
+          <div *ngIf="this.registerForm.get('emailid')?.touched&&this.registerForm.get('emailid')?.errors" style="color:red;">Invalid Email ID</div>
+          <mdb-form-control>
+            <input mdbInput type="text"  formControlName="password" class="form-control mt-3" />
+            <label mdbLabel class="form-label" for="password">Enter Password</label>
+          </mdb-form-control>
+          <div *ngIf="this.registerForm.get('password')?.touched&&this.registerForm.get('password')?.errors" style="color:red;">Invalid Password</div>
+          
+          <button type="button" class="btn btn-danger mt-3" (click)="register()">Registrer</button>
+          <p class="mt-3" style="font-size: 14px;"><a style="color:black"  href="">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>

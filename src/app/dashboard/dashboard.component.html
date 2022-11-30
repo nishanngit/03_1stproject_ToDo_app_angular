@@ -1,0 +1,116 @@
+<div class="container mt-5">
+  <div class="row">
+  <div class="col-md-3 shadow-5">
+    <div class="text-center mb-5">
+      <img
+        class="mb-4"
+        src="../../assets/images/logo.png"
+        style="width: 300px; height: 140px"
+      />
+      <h4 class="text-center  mt-5">Welcome {{user}} </h4>
+     <p> <input type="button" class="btn btn-danger mt-3" value="logout" (click)="logout()" > </p>
+
+      </div>
+    </div>
+
+ 
+   
+    <div class="col-md-9 shadow-5">
+      
+      <mdb-tabs [pills]="true">
+        <mdb-tab title="Create New Task">
+
+            <h4 class="mb-3">Create Task</h4>
+            <form action="" [formGroup]="taskForm" >
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i>
+            </span>
+            <input type="text" class="form-control"  formControlName="taskname" placeholder="Enter Task Name" aria-label="Username"
+              aria-describedby="basic-addon1" />
+              <div *ngIf="this.taskForm.get('taskname')?.touched&&this.taskForm.get('taskname')?.errors" style="color:red;">Invalid Task Name</div>
+                   
+          </div>
+  
+          <div class="input-group mb-3">
+            <span class="input-group-text">Enter Task Description</span>
+            <textarea  formControlName="taskdesc" class="form-control" aria-label="With textarea"></textarea>
+            <div *ngIf="this.taskForm.get('taskdesc')?.touched&&this.taskForm.get('taskdesc')?.errors" style="color:red;">Invalid Task Description</div>
+              
+          </div>
+          <button type="button"  class="btn btn-danger mb-5" (click)="task()">Create Task</button>
+</form>
+        </mdb-tab>
+        <mdb-tab title="Pending Tasks">On Progress ...</mdb-tab>
+       
+        <mdb-tab title="Completed Tasks">On Progress ...</mdb-tab>
+        <mdb-tab title="All Tasks">
+       
+         
+
+          <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+              <tr>
+                <th>Sl No</th>
+                <th>Task Name</th>
+                <th>Task Description</th>
+                 <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let t of tasklist">
+                <td>
+                1
+                </td>
+                <td>
+                  {{t.type}}
+                </td>
+                <td>
+                  {{t.type2}}
+                </td>
+         
+                <td>
+                  <button style="font-size: 10px; padding:5px;"   type="button" (click)="del()"  class="btn btn-danger">Delete </button>
+
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+    
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </mdb-tab>
+ 
+      </mdb-tabs>
+    </div>
+ 
+  </div>
+</div>
